@@ -207,16 +207,6 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
-      },
-      "Data.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "compile": {
-          "bin/placeholder/Data.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Data.Domain.dll": {}
-        }
       }
     }
   },
@@ -683,16 +673,10 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
-    },
-    "Data.Domain/1.0.0": {
-      "type": "project",
-      "path": "../Data.Domain/Data.Domain.csproj",
-      "msbuildProject": "../Data.Domain/Data.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Data.Domain >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
   },
@@ -703,11 +687,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\Cinema\\Cinema\\Data.Persistence\\Data.Persistence.csproj",
-      "projectName": "Data.Persistence",
-      "projectPath": "E:\\Projects\\Cinema\\Cinema\\Data.Persistence\\Data.Persistence.csproj",
+      "projectUniqueName": "E:\\Projects\\Cinema\\Cinema\\Data.Domain\\Data.Domain.csproj",
+      "projectName": "Data.Domain",
+      "projectPath": "E:\\Projects\\Cinema\\Cinema\\Data.Domain\\Data.Domain.csproj",
       "packagesPath": "C:\\Users\\georg\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\Cinema\\Cinema\\Data.Persistence\\obj\\",
+      "outputPath": "E:\\Projects\\Cinema\\Cinema\\Data.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -725,11 +709,7 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {
-            "E:\\Projects\\Cinema\\Cinema\\Data.Domain\\Data.Domain.csproj": {
-              "projectPath": "E:\\Projects\\Cinema\\Cinema\\Data.Domain\\Data.Domain.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
