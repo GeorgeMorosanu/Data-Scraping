@@ -14,8 +14,12 @@ namespace Data.Domain.Entities
 
         public Guid MovieId { get; set; }
         
-        // ?reserved
-        public Boolean Paid { get; set; }
-        
+        public bool Paid { get; set; }
+
+        public bool Reserved { get; set; }
+
+        //Which is null if the ticket is not reserved
+        public Guid ReservationId { get; set; }
+
     }
 }

@@ -23,5 +23,6 @@ namespace Data.Persistence
         public DbSet<MovieGenre> MovieGenres { get; set; }
         public DbSet<MovieShowtime> MovieShowtimes { get; set; }
         public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
     }
 }

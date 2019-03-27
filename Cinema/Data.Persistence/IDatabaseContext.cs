@@ -26,6 +26,8 @@ namespace Data.Persistence
 
         DbSet<Ticket> Tickets { get; set; }
 
+        DbSet<Reservation> Reservations { get; set; }
+
         /*
          * Locations (of Cinemas)                                          V
          * Cinemas                                                         V
@@ -36,7 +38,7 @@ namespace Data.Persistence
          * Genre                                                           V
          * MovieGenre                                                      V
          * Tickets                                                         V
-         * ?Reservation?
+         * Reservation                                                     V
          *
          * Offerts (Menus..)
          * Rewards (for Users)
