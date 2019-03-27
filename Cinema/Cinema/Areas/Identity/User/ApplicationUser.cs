@@ -8,7 +8,7 @@ namespace Cinema.Areas.Identity.User
 {
     public class ApplicationUser : IdentityUser
     {
-        //Id, UserName, Email, PhoneNumber
+        //Id [Could be transformed to Kennitala], UserName, Email, PhoneNumber
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

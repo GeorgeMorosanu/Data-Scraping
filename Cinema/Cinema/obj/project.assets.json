@@ -4616,9 +4616,22 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "Data.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Data.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Data.Domain.dll": {}
+        }
+      },
       "Data.Persistence/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Data.Domain": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Data.Persistence.dll": {}
         },
@@ -12218,6 +12231,11 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "Data.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Data.Domain/Data.Domain.csproj",
+      "msbuildProject": "../Data.Domain/Data.Domain.csproj"
     },
     "Data.Persistence/1.0.0": {
       "type": "project",
