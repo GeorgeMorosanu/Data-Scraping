@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{608D40AC-84F5-4FCB-916D-2CCA18388852}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{5BF83D66-D6F2-41D3-B9AA-AECB3A08BD80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{B6A89965-E208-4B5F-819A-4A6D644C184B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema", "Cinema\Cinema.csproj", "{544BBC29-A52D-48C5-BAE8-D19A0D198F30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Persistence", "Data.Persistence\Data.Persistence.csproj", "{5FB83649-400C-45B2-B5B0-030B4005B888}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{544BBC29-A52D-48C5-BAE8-D19A0D198F30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{544BBC29-A52D-48C5-BAE8-D19A0D198F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{544BBC29-A52D-48C5-BAE8-D19A0D198F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{544BBC29-A52D-48C5-BAE8-D19A0D198F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FB83649-400C-45B2-B5B0-030B4005B888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FB83649-400C-45B2-B5B0-030B4005B888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FB83649-400C-45B2-B5B0-030B4005B888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FB83649-400C-45B2-B5B0-030B4005B888}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{544BBC29-A52D-48C5-BAE8-D19A0D198F30} = {B6A89965-E208-4B5F-819A-4A6D644C184B}
+		{5FB83649-400C-45B2-B5B0-030B4005B888} = {608D40AC-84F5-4FCB-916D-2CCA18388852}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6AFADF41-D0AB-4716-BCA1-FC4A771AE3A1}
+	EndGlobalSection
+EndGlobal

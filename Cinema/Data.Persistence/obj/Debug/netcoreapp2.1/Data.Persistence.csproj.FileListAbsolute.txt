@@ -1,0 +1,12 @@
+E:\Projects\Cinema\Cinema\Data.Persistence\bin\Debug\netcoreapp2.1\Data.Persistence.deps.json
+E:\Projects\Cinema\Cinema\Data.Persistence\bin\Debug\netcoreapp2.1\Data.Persistence.dll
+E:\Projects\Cinema\Cinema\Data.Persistence\bin\Debug\netcoreapp2.1\Data.Persistence.pdb
+E:\Projects\Cinema\Cinema\Data.Persistence\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.dll
+E:\Projects\Cinema\Cinema\Data.Persistence\bin\Debug\netcoreapp2.1\Microsoft.EntityFrameworkCore.xml
+E:\Projects\Cinema\Cinema\Data.Persistence\obj\Debug\netcoreapp2.1\Data.Persistence.csprojAssemblyReference.cache
+E:\Projects\Cinema\Cinema\Data.Persistence\obj\Debug\netcoreapp2.1\Data.Persistence.csproj.CoreCompileInputs.cache
+E:\Projects\Cinema\Cinema\Data.Persistence\obj\Debug\netcoreapp2.1\Data.Persistence.AssemblyInfoInputs.cache
+E:\Projects\Cinema\Cinema\Data.Persistence\obj\Debug\netcoreapp2.1\Data.Persistence.AssemblyInfo.cs
+E:\Projects\Cinema\Cinema\Data.Persistence\obj\Debug\netcoreapp2.1\Data.Persistence.csproj.CopyComplete
+E:\Projects\Cinema\Cinema\Data.Persistence\obj\Debug\netcoreapp2.1\Data.Persistence.dll
+E:\Projects\Cinema\Cinema\Data.Persistence\obj\Debug\netcoreapp2.1\Data.Persistence.pdb
