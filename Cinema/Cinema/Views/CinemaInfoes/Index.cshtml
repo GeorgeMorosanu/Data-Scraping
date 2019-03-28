@@ -1,0 +1,54 @@
+﻿<!--model IEnumerable<Data.Domain.Entities.CinemaInfo>-->
+@model List<Data.Domain.Models.CinemaModels.CinemaData>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <!--Html.DisplayNameFor(model => model.LocationId)-->
+                Adress
+            </th>
+            <th>
+                <!--Html.DisplayNameFor(model => model.Email)-->
+                Cinema Number
+            </th>
+            <th>
+                <!--Html.DisplayNameFor(model => model.PhoneNumber)-->
+                Cinema mail
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <!--Html.DisplayFor(modelItem => item.LocationId)-->
+                @item.CinemaLocation.Street, @item.CinemaLocation.PostalCode @item.CinemaLocation.State
+            </td>
+            <td>
+                <!--Html.DisplayFor(modelItem => item.Email)-->
+                @item.Cinema.PhoneNumber
+            </td>
+            <td>
+                <!-- Html.DisplayFor(modelItem => item.PhoneNumber)-->
+                @item.Cinema.Email
+            </td>
+            <td>
+                <!-- item.Id  -->
+                <a asp-action="Edit" asp-route-id="@item.Cinema.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Cinema.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Cinema.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

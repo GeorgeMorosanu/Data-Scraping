@@ -18,6 +18,8 @@ namespace Data.Domain.Entities
         //ex: 2 Areas, with one coridor in the middle
         public int NumberOfAreas { get; set; }
 
+        public int NumberOfSeats { get; set; }
+        
         //MaximumNumberOfSeatsReserved?
     }
 }

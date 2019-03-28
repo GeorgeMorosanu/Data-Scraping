@@ -9,7 +9,6 @@ E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Cinema.csprojAssemblyRe
 E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Cinema.csproj.CoreCompileInputs.cache
 E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Cinema.RazorAssemblyInfo.cache
 E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Cinema.RazorAssemblyInfo.cs
-E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Cinema.AssemblyInfoInputs.cache
 E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Cinema.AssemblyInfo.cs
 E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Cinema.TagHelpers.input.cache
@@ -72,3 +71,9 @@ E:\Projects\Cinema\Cinema\Cinema\bin\Debug\netcoreapp2.1\BusinessLogic.dll
 E:\Projects\Cinema\Cinema\Cinema\bin\Debug\netcoreapp2.1\Data.Domain.dll
 E:\Projects\Cinema\Cinema\Cinema\bin\Debug\netcoreapp2.1\BusinessLogic.pdb
 E:\Projects\Cinema\Cinema\Cinema\bin\Debug\netcoreapp2.1\Data.Domain.pdb
+E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Razor\Views\CinemaInfoes\Create.g.cshtml.cs
+E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Razor\Views\CinemaInfoes\Delete.g.cshtml.cs
+E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Razor\Views\CinemaInfoes\Details.g.cshtml.cs
+E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Razor\Views\CinemaInfoes\Edit.g.cshtml.cs
+E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Razor\Views\CinemaInfoes\Index.g.cshtml.cs
+E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

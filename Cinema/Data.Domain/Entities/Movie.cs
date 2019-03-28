@@ -12,11 +12,11 @@ namespace Data.Domain.Entities
         
         public string Title { get; set; }
 
-        public TimeSpan Duration { get; set; }  //ex: Duration = new TimeSpan(1, 51, 24); // 1h 51mins 24secs
+        public string Duration { get; set; }  //ex: 1h 51mins
 
         public string Summary { get; set; }
 
-        public DateTime ReleaseDate { get; set; }
+        public string ReleaseDate { get; set; }
 
         //ex: 18+
         public string Restrictions { get; set; }
