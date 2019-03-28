@@ -1,0 +1,14 @@
+E:\Projects\Cinema\Cinema\BusinessLogic\bin\Debug\netcoreapp2.1\Data.Domain.dll
+E:\Projects\Cinema\Cinema\BusinessLogic\bin\Debug\netcoreapp2.1\Data.Persistence.dll
+E:\Projects\Cinema\Cinema\BusinessLogic\bin\Debug\netcoreapp2.1\Data.Persistence.pdb
+E:\Projects\Cinema\Cinema\BusinessLogic\obj\Debug\netcoreapp2.1\BusinessLogic.csprojAssemblyReference.cache
+E:\Projects\Cinema\Cinema\BusinessLogic\obj\Debug\netcoreapp2.1\BusinessLogic.csproj.CoreCompileInputs.cache
+E:\Projects\Cinema\Cinema\BusinessLogic\obj\Debug\netcoreapp2.1\BusinessLogic.AssemblyInfoInputs.cache
+E:\Projects\Cinema\Cinema\BusinessLogic\obj\Debug\netcoreapp2.1\BusinessLogic.AssemblyInfo.cs
+E:\Projects\Cinema\Cinema\BusinessLogic\bin\Debug\netcoreapp2.1\BusinessLogic.deps.json
+E:\Projects\Cinema\Cinema\BusinessLogic\bin\Debug\netcoreapp2.1\BusinessLogic.dll
+E:\Projects\Cinema\Cinema\BusinessLogic\bin\Debug\netcoreapp2.1\BusinessLogic.pdb
+E:\Projects\Cinema\Cinema\BusinessLogic\bin\Debug\netcoreapp2.1\Data.Domain.pdb
+E:\Projects\Cinema\Cinema\BusinessLogic\obj\Debug\netcoreapp2.1\BusinessLogic.csproj.CopyComplete
+E:\Projects\Cinema\Cinema\BusinessLogic\obj\Debug\netcoreapp2.1\BusinessLogic.dll
+E:\Projects\Cinema\Cinema\BusinessLogic\obj\Debug\netcoreapp2.1\BusinessLogic.pdb

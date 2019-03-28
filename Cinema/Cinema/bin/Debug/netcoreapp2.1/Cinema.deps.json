@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.1": {
       "Cinema/1.0.0": {
         "dependencies": {
+          "BusinessLogic": "1.0.0",
           "Data.Persistence": "1.0.0",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
@@ -515,7 +516,35 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
+      "BusinessLogic/1.0.0": {
+        "dependencies": {
+          "Data.Domain": "1.0.0",
+          "Data.Persistence": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.1.1"
+        },
+        "runtime": {
+          "BusinessLogic.dll": {}
+        },
+        "compile": {
+          "BusinessLogic.dll": {}
+        }
+      },
+      "Data.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.1.1"
+        },
+        "runtime": {
+          "Data.Domain.dll": {}
+        },
+        "compile": {
+          "Data.Domain.dll": {}
+        }
+      },
       "Data.Persistence/1.0.0": {
+        "dependencies": {
+          "Data.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.1.1"
+        },
         "runtime": {
           "Data.Persistence.dll": {}
         },
@@ -3652,6 +3681,16 @@
       "sha512": "sha512-td7x21K8LalpjTWCzW/nQboQIFbq9i0r+PCyBBCdLWWnm4NBcdN18vpz/G9hCpUaCIfRL+ZxJNVTywlNlB1aLQ==",
       "path": "system.linq.parallel/4.3.0",
       "hashPath": "system.linq.parallel.4.3.0.nupkg.sha512"
+    },
+    "BusinessLogic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Data.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Data.Persistence/1.0.0": {
       "type": "project",

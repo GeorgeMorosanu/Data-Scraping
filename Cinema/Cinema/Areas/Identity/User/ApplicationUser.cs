@@ -9,11 +9,13 @@ namespace Cinema.Areas.Identity.User
     public class ApplicationUser : IdentityUser
     {
         //Id [Could be transformed to Kennitala], UserName, Email, PhoneNumber
+        public string Kennitala { get; set; }
+
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
-        public DateTime BirthDay { get; set; }
+        public DateTime BirthDate { get; set; }
 
         // 0 - Female, 1 - Male
         public bool Gender { get; set; }

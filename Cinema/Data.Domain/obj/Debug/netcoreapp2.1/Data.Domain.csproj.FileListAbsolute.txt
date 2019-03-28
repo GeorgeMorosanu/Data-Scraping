@@ -1,0 +1,9 @@
+E:\Projects\Cinema\Cinema\Data.Domain\bin\Debug\netcoreapp2.1\Data.Domain.deps.json
+E:\Projects\Cinema\Cinema\Data.Domain\bin\Debug\netcoreapp2.1\Data.Domain.dll
+E:\Projects\Cinema\Cinema\Data.Domain\obj\Debug\netcoreapp2.1\Data.Domain.csproj.CoreCompileInputs.cache
+E:\Projects\Cinema\Cinema\Data.Domain\obj\Debug\netcoreapp2.1\Data.Domain.AssemblyInfoInputs.cache
+E:\Projects\Cinema\Cinema\Data.Domain\obj\Debug\netcoreapp2.1\Data.Domain.AssemblyInfo.cs
+E:\Projects\Cinema\Cinema\Data.Domain\bin\Debug\netcoreapp2.1\Data.Domain.pdb
+E:\Projects\Cinema\Cinema\Data.Domain\obj\Debug\netcoreapp2.1\Data.Domain.dll
+E:\Projects\Cinema\Cinema\Data.Domain\obj\Debug\netcoreapp2.1\Data.Domain.pdb
+E:\Projects\Cinema\Cinema\Data.Domain\obj\Debug\netcoreapp2.1\Data.Domain.csprojAssemblyReference.cache

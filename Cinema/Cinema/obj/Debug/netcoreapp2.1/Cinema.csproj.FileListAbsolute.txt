@@ -68,3 +68,7 @@ E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pa
 E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\Error.g.cshtml.cs
 E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.g.cshtml.cs
 E:\Projects\Cinema\Cinema\Cinema\obj\Debug\netcoreapp2.1\Razor\Areas\Identity\Pages\_ViewImports.g.cshtml.cs
+E:\Projects\Cinema\Cinema\Cinema\bin\Debug\netcoreapp2.1\BusinessLogic.dll
+E:\Projects\Cinema\Cinema\Cinema\bin\Debug\netcoreapp2.1\Data.Domain.dll
+E:\Projects\Cinema\Cinema\Cinema\bin\Debug\netcoreapp2.1\BusinessLogic.pdb
+E:\Projects\Cinema\Cinema\Cinema\bin\Debug\netcoreapp2.1\Data.Domain.pdb

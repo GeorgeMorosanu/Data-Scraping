@@ -4616,9 +4616,27 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "BusinessLogic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Data.Domain": "1.0.0",
+          "Data.Persistence": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.1.1"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLogic.dll": {}
+        }
+      },
       "Data.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.1.1"
+        },
         "compile": {
           "bin/placeholder/Data.Domain.dll": {}
         },
@@ -4630,7 +4648,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
-          "Data.Domain": "1.0.0"
+          "Data.Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.1.1"
         },
         "compile": {
           "bin/placeholder/Data.Persistence.dll": {}
@@ -12232,6 +12251,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "BusinessLogic/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLogic/BusinessLogic.csproj",
+      "msbuildProject": "../BusinessLogic/BusinessLogic.csproj"
+    },
     "Data.Domain/1.0.0": {
       "type": "project",
       "path": "../Data.Domain/Data.Domain.csproj",
@@ -12245,6 +12269,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "BusinessLogic >= 1.0.0",
       "Data.Persistence >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
@@ -12282,6 +12307,9 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "E:\\Projects\\Cinema\\Cinema\\BusinessLogic\\BusinessLogic.csproj": {
+              "projectPath": "E:\\Projects\\Cinema\\Cinema\\BusinessLogic\\BusinessLogic.csproj"
+            },
             "E:\\Projects\\Cinema\\Cinema\\Data.Persistence\\Data.Persistence.csproj": {
               "projectPath": "E:\\Projects\\Cinema\\Cinema\\Data.Persistence\\Data.Persistence.csproj"
             }

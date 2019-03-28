@@ -13,9 +13,11 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="Models\CinemaModels\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
     <ProjectReference Include="..\Data.Persistence\Data.Persistence.csproj" />
   </ItemGroup>
 

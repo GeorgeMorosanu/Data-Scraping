@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Data.Domain.Entities
 {
-    public class Cinema
+    public class CinemaInfo
     {
         [Key]
         public Guid Id { get; set; }
@@ -14,5 +14,10 @@ namespace Data.Domain.Entities
         public Guid LocationId { get; set; }
 
         //Openinghours?
+        public string Email { get; set; }
+
+        public string PhoneNumber { get; set; }
+        
+        //fax?
     }
 }
