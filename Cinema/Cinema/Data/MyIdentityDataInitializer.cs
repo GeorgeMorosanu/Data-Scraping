@@ -44,6 +44,7 @@ namespace Cinema.Data
             
             foreach (var movieURL in ListOfMovieIMDBURL)
             {
+                // The code below must be moved into a Service/Repository Function - getMovieDataFromIMDB(string movieURLtoIMDB)
                 var teamList = new List<string>();
                 var web = new HtmlWeb();
                 var htmlDoc = web.Load(movieURL);
@@ -75,23 +76,30 @@ namespace Cinema.Data
                     }
                    
                    
-                    //var summary = 
+                    var summary = htmlDoc.DocumentNode.SelectNodes("//*[@id=\"title-overview-widget\"]/div[@class=\"plot_summary_wrapper\"]/div[@class=\"plot_summary \"]/div[@class=\"summary_text\"]")[0].InnerText.Trim();
+
                     string restrictions = "12+";
                     string UrlToIMDB = movieURL;
                     var UrlToTrailer = "https://www.imdb.com"+htmlDoc.DocumentNode.SelectNodes("//*[@id=\"title-overview-widget\"]/div[@class=\"vital\"]/div[@class=\"slate_wrapper\"]/div[@class=\"slate\"]/a")[0].Attributes["href"].Value;
-                    //rating
+                    var rating = "Unknown";
 
+                    if (htmlDoc.DocumentNode.SelectNodes( "//*[@id=\"title-overview-widget\"]/div[@class=\"vital\"]/div[@class=\"title_block\"]/div[@class=\"title_bar_wrapper\"]/div[@class=\"ratings_wrapper\"]/div[@class=\"imdbRating\"]/div[@class=\"ratingValue\"]") != null)
+                    {
+                        rating = rating = htmlDoc.DocumentNode.SelectNodes(
+                        "//*[@id=\"title-overview-widget\"]/div[@class=\"vital\"]/div[@class=\"title_block\"]/div[@class=\"title_bar_wrapper\"]/div[@class=\"ratings_wrapper\"]/div[@class=\"imdbRating\"]/div[@class=\"ratingValue\"]")[0].InnerHtml;
+
+                    }
                     Movie newMovie = new Movie()
                     {
                         Id = Guid.NewGuid(),
                         Title = title,
                         Duration = duration,
-                        Summary = "",
+                        Summary = summary,
                         ReleaseDate = releaseDate,
                         Restrictions = restrictions,
                         UrlToIMDB = movieURL,
                         UrlToTrailer = UrlToTrailer,
-                        Rating = ""
+                        Rating = rating
                     };
                     dbContext.Movies.Add(newMovie);
                     dbContext.SaveChanges();
