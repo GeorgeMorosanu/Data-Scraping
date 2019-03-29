@@ -16,6 +16,8 @@ using Data.Persistence;
 using Cinema.Areas.Identity.User;
 using Data.Domain.Interfaces.Repositories;
 using BusinessLogic.Repositories;
+using Data.Domain.Interfaces.Services;
+using BusinessLogic.Services;
 
 namespace Cinema
 {
@@ -56,13 +58,24 @@ namespace Cinema
 
             services.AddTransient<IDatabaseContext, DatabaseContext>();
             services.AddTransient<ICinemaRepository, CinemaRepository>();
+            services.AddTransient<IMovieService, MovieService>();
+            services.AddTransient<IGenreRepository, GenreRepository>();
             
+
+
 
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, DatabaseContext dbContext)
+        public void Configure(
+            IApplicationBuilder app, 
+            IHostingEnvironment env,
+            UserManager<ApplicationUser> userManager, 
+            RoleManager<IdentityRole> roleManager, 
+            DatabaseContext dbContext, 
+            IMovieService movieService,
+            IGenreRepository genreRepository)
         {
             if (env.IsDevelopment())
             {
@@ -81,7 +94,7 @@ namespace Cinema
 
             app.UseAuthentication();
 
-            MyIdentityDataInitializer.SeedData(roleManager, userManager, dbContext);
+            MyIdentityDataInitializer.SeedData(roleManager, userManager, dbContext, movieService, genreRepository);
 
             app.UseMvc(routes =>
             {

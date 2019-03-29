@@ -7,14 +7,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Data.Domain.Interfaces.Repositories;
+using Data.Domain.Interfaces.Services;
+using Data.Domain.Models.MovieModels;
 
 namespace Cinema.Data
 {
     public static class MyIdentityDataInitializer
     {
-        public static void SeedData(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager, DatabaseContext dbContext)
+        public static void SeedData(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager, DatabaseContext dbContext, IMovieService movieService, IGenreRepository genreRepository)
         {
-          /*
+          
             SeedRoles(roleManager);
 
             SeedUsers(userManager);
@@ -24,12 +27,47 @@ namespace Cinema.Data
             SeedDatabase_Genres(dbContext);
 
             SeedDatabase_TheatreHalls(dbContext);
-            */
+            
+            SeedDatabase_Movies(dbContext, movieService, genreRepository);
 
-            SeedDatabase_Movies(dbContext);
+            /* This will be commented after one run */
+            //SeedDatabase_MovieShowtimes(dbContext);
         }
 
-        public static void SeedDatabase_Movies(DatabaseContext dbContext)
+        public static void SeedDatabase_MovieShowtimes(DatabaseContext dbContext)
+        {
+            Random rnd = new Random(); //random movie
+            int numberOfMovies = dbContext.Movies.Count();
+            int randomNumber = 0;
+
+            var newMovieShowtime = new MovieShowtime();
+            List<Guid> cinemaIds = dbContext.Cinemas.Select(x => x.Id).ToList();
+            foreach (var cinemaId in cinemaIds)
+            {
+                foreach (var theatreHallId in dbContext.TheatreHalls.Where(x => x.CinemaId == cinemaId).Select(x => x.Id).ToList())
+                {
+                    //foreach (var movieId in dbContext.Movies.Select(x => x.Id))
+                    //{
+                    randomNumber = rnd.Next(numberOfMovies);
+
+                    var movieId = dbContext.Movies.ToList()[randomNumber].Id;
+                        newMovieShowtime = new MovieShowtime()
+                        {
+                            Id = Guid.NewGuid(),
+                            TheatreHallId = theatreHallId,
+                            MovieId = movieId,
+                            StartTime=DateTime.Now.AddDays(1),
+                            Subtitle = "Icelandic",
+                            Language = "English"
+                        };
+                        dbContext.MovieShowtimes.Add(newMovieShowtime);
+                    //}
+                }
+            }
+            dbContext.SaveChanges();
+        }
+
+        public static void SeedDatabase_Movies(DatabaseContext dbContext, IMovieService movieService, IGenreRepository genreRepository)
         {
             //avengers, captain marvel, spiderman, once upon a time
             List<string> ListOfMovieIMDBURL = new List<string>()
@@ -39,93 +77,59 @@ namespace Cinema.Data
                 "https://www.imdb.com/title/tt4633694/?ref_=nv_sr_1",
                 "https://www.imdb.com/title/tt7131622/?ref_=adv_li_tt",
                 "https://www.imdb.com/title/tt3861390/?ref_=inth_ov_i"
-
             };
             
-            foreach (var movieURL in ListOfMovieIMDBURL)
+            foreach (var movieUrl in ListOfMovieIMDBURL)
             {
-                // The code below must be moved into a Service/Repository Function - getMovieDataFromIMDB(string movieURLtoIMDB)
-                var teamList = new List<string>();
-                var web = new HtmlWeb();
-                var htmlDoc = web.Load(movieURL);
-                if (htmlDoc.DocumentNode != null && htmlDoc.ParseErrors != null && !htmlDoc.ParseErrors.Any())
+                if (dbContext.Movies.Where(x => x.UrlToIMDB == movieUrl).Count() == 0)
                 {
-                    String title = htmlDoc.DocumentNode.SelectNodes("//*[@id=\"title-overview-widget\"]/div[@class=\"vital\"]/div[@class=\"title_block\"]/div[@class=\"title_bar_wrapper\"]/div[@class=\"titleBar\"]/div[@class=\"title_wrapper\"]/h1")[0].InnerText.ToString();
-                    title = title.Substring(0, title.Length - 24);
-                    
-                    var genres = htmlDoc.DocumentNode.SelectNodes("//*[@id=\"title-overview-widget\"]/div[@class=\"vital\"]/div[@class=\"title_block\"]/div[@class=\"title_bar_wrapper\"]/div[@class=\"titleBar\"]/div[@class=\"title_wrapper\"]/div[@class=\"subtext\"]/a");
-                    List<string> ListOfGenresForGivenMovie = new List<string>();
+                    // The code below must be moved into a Service/Repository Function - getMovieDataFromIMDB(string movieURLtoIMDB)
+                    MovieDataModel getDataFromIMDB = movieService.getMovieDataFromImdb(movieUrl);
 
-                    foreach (var genre in genres)
-                    {
-                        ListOfGenresForGivenMovie.Add(genre.InnerText.ToString());
-                    }
-
-                    string releaseDate = ListOfGenresForGivenMovie[ListOfGenresForGivenMovie.Count - 1];
-                    
-                    string duration = "Unknown";
-                    var possibleDuration = htmlDoc.DocumentNode.SelectNodes(
-                        "//*[@id=\"title-overview-widget\"]/div[@class=\"vital\"]/div[@class=\"title_block\"]/div[@class=\"title_bar_wrapper\"]/div[@class=\"titleBar\"]/div[@class=\"title_wrapper\"]/div[@class=\"subtext\"]")[0].InnerHtml;
-                    string regexPattern = @"<time(.*?)<\/time>";
-                    Regex regex = new Regex(regexPattern, RegexOptions.Singleline);
-                    MatchCollection collection = regex.Matches(possibleDuration);
-                    if (collection.Count > 0)
-                    {
-                        duration = collection[0].Groups[1].Value;
-                        duration = duration.Substring(duration.IndexOf('>')+1).Trim();
-                    }
-                   
-                   
-                    var summary = htmlDoc.DocumentNode.SelectNodes("//*[@id=\"title-overview-widget\"]/div[@class=\"plot_summary_wrapper\"]/div[@class=\"plot_summary \"]/div[@class=\"summary_text\"]")[0].InnerText.Trim();
-
-                    string restrictions = "12+";
-                    string UrlToIMDB = movieURL;
-                    var UrlToTrailer = "https://www.imdb.com"+htmlDoc.DocumentNode.SelectNodes("//*[@id=\"title-overview-widget\"]/div[@class=\"vital\"]/div[@class=\"slate_wrapper\"]/div[@class=\"slate\"]/a")[0].Attributes["href"].Value;
-                    var rating = "Unknown";
-
-                    if (htmlDoc.DocumentNode.SelectNodes( "//*[@id=\"title-overview-widget\"]/div[@class=\"vital\"]/div[@class=\"title_block\"]/div[@class=\"title_bar_wrapper\"]/div[@class=\"ratings_wrapper\"]/div[@class=\"imdbRating\"]/div[@class=\"ratingValue\"]") != null)
-                    {
-                        rating = rating = htmlDoc.DocumentNode.SelectNodes(
-                        "//*[@id=\"title-overview-widget\"]/div[@class=\"vital\"]/div[@class=\"title_block\"]/div[@class=\"title_bar_wrapper\"]/div[@class=\"ratings_wrapper\"]/div[@class=\"imdbRating\"]/div[@class=\"ratingValue\"]")[0].InnerHtml;
-
-                    }
                     Movie newMovie = new Movie()
                     {
                         Id = Guid.NewGuid(),
-                        Title = title,
-                        Duration = duration,
-                        Summary = summary,
-                        ReleaseDate = releaseDate,
-                        Restrictions = restrictions,
-                        UrlToIMDB = movieURL,
-                        UrlToTrailer = UrlToTrailer,
-                        Rating = rating
+                        Title = getDataFromIMDB.Title,
+                        Duration = getDataFromIMDB.Duration,
+                        Summary = getDataFromIMDB.Summary,
+                        ReleaseDate = getDataFromIMDB.ReleaseDate,
+                        Restrictions = getDataFromIMDB.Restrictions,
+                        UrlToIMDB = getDataFromIMDB.UrlToIMDB,
+                        UrlToTrailer = getDataFromIMDB.UrlToTrailer,
+                        Rating = getDataFromIMDB.Rating
                     };
+                    // Adding the Movie
                     dbContext.Movies.Add(newMovie);
                     dbContext.SaveChanges();
 
-                    ListOfGenresForGivenMovie.RemoveAt(ListOfGenresForGivenMovie.Count-1);
-                    
-                    foreach (var x in ListOfGenresForGivenMovie)
+                    List<string> genresForSelectedMovie = movieService.getMovieGenre(movieUrl);
+                    foreach (string genre in genresForSelectedMovie)
                     {
-                        // add rows in MovieGenre
+                        MovieGenre newMovieGenre = new MovieGenre()
+                        {
+                            Id = Guid.NewGuid(),
+                            MovieId = newMovie.Id,
+                            GenreId = genreRepository.getGenreIdByGenre(genre)
+                        };
+                        dbContext.MovieGenres.Add(newMovieGenre);
+                        dbContext.SaveChanges();
                     }
                 }
 
             }
         }
         /*
-         * MovieShowtime show = new MovieShowtime()
-                            {
-                                Id = Guid.NewGuid(),
-                                MovieId= Guid.NewGuid(),
-                                TheatreHallId=Guid.NewGuid(),
-                                StartTime=DateTime.Now,
-                                Subtitle = genre.InnerText.ToString(),
-                                Language=""
-                            };
-                            dbContext.MovieShowtimes.Add(show);
-                            dbContext.SaveChanges();
+            MovieShowtime show = new MovieShowtime()
+            {
+                Id = Guid.NewGuid(),
+                MovieId= Guid.NewGuid(),
+                TheatreHallId=Guid.NewGuid(),
+                StartTime=DateTime.Now,
+                Subtitle = genre.InnerText.ToString(),
+                Language=""
+            };
+            dbContext.MovieShowtimes.Add(show);
+            dbContext.SaveChanges();
          */
         public static void SeedDatabase_TheatreHalls(DatabaseContext dbContext)
         {
