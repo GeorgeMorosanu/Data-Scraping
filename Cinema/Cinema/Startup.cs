@@ -60,6 +60,7 @@ namespace Cinema
             services.AddTransient<ICinemaRepository, CinemaRepository>();
             services.AddTransient<IMovieService, MovieService>();
             services.AddTransient<IGenreRepository, GenreRepository>();
+            services.AddTransient<IGenreService, GenreService>();
             
 
 
@@ -75,7 +76,8 @@ namespace Cinema
             RoleManager<IdentityRole> roleManager, 
             DatabaseContext dbContext, 
             IMovieService movieService,
-            IGenreRepository genreRepository)
+            IGenreRepository genreRepository,
+            IGenreService genreService)
         {
             if (env.IsDevelopment())
             {
@@ -94,7 +96,7 @@ namespace Cinema
 
             app.UseAuthentication();
 
-            MyIdentityDataInitializer.SeedData(roleManager, userManager, dbContext, movieService, genreRepository);
+            MyIdentityDataInitializer.SeedData(roleManager, userManager, dbContext, movieService, genreRepository, genreService);
 
             app.UseMvc(routes =>
             {

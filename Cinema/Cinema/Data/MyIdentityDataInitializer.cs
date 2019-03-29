@@ -15,7 +15,13 @@ namespace Cinema.Data
 {
     public static class MyIdentityDataInitializer
     {
-        public static void SeedData(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager, DatabaseContext dbContext, IMovieService movieService, IGenreRepository genreRepository)
+        public static void SeedData(
+            RoleManager<IdentityRole> roleManager, 
+            UserManager<ApplicationUser> userManager, 
+            DatabaseContext dbContext, 
+            IMovieService movieService, 
+            IGenreRepository genreRepository,
+            IGenreService genreService)
         {
           
             SeedRoles(roleManager);
@@ -24,7 +30,7 @@ namespace Cinema.Data
 
             SeedDatabase_CinemasAndLocations(dbContext);
 
-            SeedDatabase_Genres(dbContext);
+            SeedDatabase_Genres(dbContext, genreService);
 
             SeedDatabase_TheatreHalls(dbContext);
             
@@ -98,6 +104,7 @@ namespace Cinema.Data
                         UrlToTrailer = getDataFromIMDB.UrlToTrailer,
                         Rating = getDataFromIMDB.Rating
                     };
+
                     // Adding the Movie
                     dbContext.Movies.Add(newMovie);
                     dbContext.SaveChanges();
@@ -118,19 +125,7 @@ namespace Cinema.Data
 
             }
         }
-        /*
-            MovieShowtime show = new MovieShowtime()
-            {
-                Id = Guid.NewGuid(),
-                MovieId= Guid.NewGuid(),
-                TheatreHallId=Guid.NewGuid(),
-                StartTime=DateTime.Now,
-                Subtitle = genre.InnerText.ToString(),
-                Language=""
-            };
-            dbContext.MovieShowtimes.Add(show);
-            dbContext.SaveChanges();
-         */
+       
         public static void SeedDatabase_TheatreHalls(DatabaseContext dbContext)
         {
             string nameOfTheHall = "";
@@ -167,34 +162,9 @@ namespace Cinema.Data
             }
         }
 
-        public static void SeedDatabase_Genres(DatabaseContext dbContext)
+        public static void SeedDatabase_Genres(DatabaseContext dbContext, IGenreService genreService)
         {
-            List<string> genreList = new List<string>()
-            {
-                "Action",
-                "Adventure",
-                "Animation",
-                "Biography",
-                "Comedy",
-                "Crime",
-                "Documentary",
-                "Drama",
-                "Family",
-                "Fantasy",
-                "Film Noir",
-                "History",
-                "Horror",
-                "Musical",
-                "Mystery",
-                "Romance",
-                "Sci-Fi",
-                "Short",
-                "Sport",
-                "Superhero",
-                "Thriller",
-                "War",
-                "Western"
-            };
+            List<string> genreList = genreService.getAllGenres();
 
             Genre newGenre = new Genre();
             foreach (var genre in genreList)
@@ -204,7 +174,7 @@ namespace Cinema.Data
                     Id = Guid.NewGuid(),
                     Name = genre
                 };
-                if (dbContext.Genres.Where(x => x.Name == newGenre.Name).Count() == 0)
+                if (dbContext.Genres.Where(x => x.Name == genre).Count() == 0)
                 {
                     dbContext.Genres.Add(newGenre);
                 }
