@@ -61,11 +61,9 @@ namespace Cinema
             services.AddTransient<IMovieService, MovieService>();
             services.AddTransient<IGenreRepository, GenreRepository>();
             services.AddTransient<IGenreService, GenreService>();
+            services.AddTransient<IMovieRepository, MovieRepository>();
             
-
-
-
-
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

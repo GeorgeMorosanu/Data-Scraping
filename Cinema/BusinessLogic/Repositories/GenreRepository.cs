@@ -1,4 +1,5 @@
-﻿using Data.Domain.Interfaces.Repositories;
+﻿using Data.Domain.Entities;
+using Data.Domain.Interfaces.Repositories;
 using Data.Persistence;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,11 @@ namespace BusinessLogic.Repositories
         public Guid getGenreIdByGenre(string genreName)
         {
             return _dbContext.Genres.Where(x => x.Name == genreName).Select(x => x.Id).FirstOrDefault();
+        }
+
+        public List<Genre> getGenres()
+        {
+            return _dbContext.Genres.OrderBy(x=>x.Name).ToList();
         }
     }
 }
